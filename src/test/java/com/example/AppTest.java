@@ -1,20 +1,20 @@
 package com.example;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-/**
- * Unit test for simple App.
- */
 public class AppTest 
 {
-    /**
-     * Rigorous Test :-)
-     */
     @Test
-    public void shouldAnswerWithTrue()
+    public void newTreeIsEmpty()
     {
-        assertTrue( true );
+        PrefixTree tree = new PrefixTree();
+
+        boolean expected = true;
+        boolean actual = tree.isEmpty();
+
+        assertEquals( expected, actual );
     }
 }
