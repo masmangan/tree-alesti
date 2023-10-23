@@ -17,4 +17,69 @@ public class AppTest
 
         assertEquals( expected, actual );
     }
+
+    @Test
+    public void addSingleLetter()
+    {
+        PrefixTree tree = new PrefixTree();
+        tree.add("a");
+
+        int expected = 1;
+        int actual = tree.size();
+
+        assertEquals( expected, actual );
+    }
+
+    @Test
+    public void addSingleLetterTwice()
+    {
+        PrefixTree tree = new PrefixTree();
+        tree.add("a");
+
+        tree.add("a");
+
+        int expected = 1;
+        int actual = tree.size();
+
+        assertEquals( expected, actual );
+    }
+
+
+    @Test
+    public void addTwoLetters()
+    {
+        PrefixTree tree = new PrefixTree();
+        tree.add("ab");
+
+        int expected = 2;
+        int actual = tree.size();
+
+        assertEquals( expected, actual );
+    }
+
+    @Test
+    public void addTwoLetterAreTheSameLetter()
+    {
+        PrefixTree tree = new PrefixTree();
+        tree.add("aa");
+
+        int expected = 2;
+        int actual = tree.size();
+
+        assertEquals( expected, actual );
+    }    
+
+    @Test
+    public void addSamePrefix()
+    {
+        PrefixTree tree = new PrefixTree();
+        tree.add("aa");
+        tree.add("aab");
+
+        int expected = 3;
+        int actual = tree.size();
+
+        assertEquals( expected, actual );
+    }  
+
 }
