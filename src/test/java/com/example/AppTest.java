@@ -19,6 +19,17 @@ public class AppTest
     }
 
     @Test
+    public void newTreeIsEmptyToString()
+    {
+        PrefixTree tree = new PrefixTree();
+
+        String expected = "[]";
+        String actual = tree.toString();
+
+        assertEquals( expected, actual );
+    }
+
+    @Test
     public void addSingleLetter()
     {
         PrefixTree tree = new PrefixTree();
@@ -26,6 +37,19 @@ public class AppTest
 
         int expected = 1;
         int actual = tree.size();
+
+        assertEquals( expected, actual );
+    }
+
+
+    @Test
+    public void addSingleLetterToString()
+    {
+        PrefixTree tree = new PrefixTree();
+        tree.add("a");
+
+        String expected = "[a]";
+        String actual = tree.toString();
 
         assertEquals( expected, actual );
     }

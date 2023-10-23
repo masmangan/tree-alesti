@@ -48,6 +48,11 @@ class PrefixTree {
         return size;
     }
 
+    @Override
+    public String toString() {
+        return "[]";
+    }
+
 }
 
 public class App {
