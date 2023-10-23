@@ -1,33 +1,58 @@
 package com.example;
 
-
+import java.util.HashMap;
+import java.util.Map;
 
 class Node {
-    char value;
+    final char value;
+    final Map<Character, Node> children;
+    boolean isWord;
+
+    public Node(char value) {
+        this.value = value;
+        children = new HashMap<>();
+        isWord = false;
+    }
 }
 
 class PrefixTree {
-    private Node root;
+    private final Node root;
+    private int size;
+
+    PrefixTree() {
+        root = new Node('*');
+        size = 0;
+    }
 
     public boolean isEmpty() {
-        return root == null;
+        return root.children.isEmpty();
     }
 
     public void add(String s) {
-        // TODO: dividir em letras da esquerda 
-        // para direita e inserir na árvore
-        // Um nodo para cada letra a partir do root
-        
+        Node n = root;
+
+        for (char c : s.toCharArray()) {
+            Node child = n.children.get(c);
+            if (child == null) {
+                child = new Node(c);
+                n.children.put(c, child);
+                size++;
+            }
+            n = child;
+        }
+        n.isWord = true;
+
+    }
+
+    public int size() {
+        return size;
     }
 
 }
 
-
-public class App 
-{
-    public static void main( String[] args )
-    {
-        System.out.println( "PrefixTree!" );
+public class App {
+    public static void main(String[] args) {
+        System.out.println("PrefixTree!");
 
         PrefixTree tree = new PrefixTree();
         System.out.println(tree.isEmpty());
