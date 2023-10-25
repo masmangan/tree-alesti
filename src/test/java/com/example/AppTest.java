@@ -54,6 +54,19 @@ public class AppTest
         assertEquals( expected, actual );
     }
 
+   @Test
+    public void addSingleLetterTwiceToString()
+    {
+        PrefixTree tree = new PrefixTree();
+        tree.add("a");
+        tree.add("b");
+
+        String expected = "[a, b]";
+        String actual = tree.toString();
+
+        assertEquals( expected, actual );
+    }
+
     @Test
     public void addSingleLetterTwice()
     {
